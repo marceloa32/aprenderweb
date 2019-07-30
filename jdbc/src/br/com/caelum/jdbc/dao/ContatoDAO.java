@@ -15,7 +15,6 @@ import br.com.caelum.jdbc.modelo.Contato;
 
 /**
  * FJ-21 14.5.2 exr. 2.11
- * @author Marcelo
  *
  */
 public class ContatoDAO {
@@ -46,12 +45,23 @@ public class ContatoDAO {
 		
 	}
 	
-	//exr 2.11
+	//exr 2.15 3
 	public List<Contato> getLista(){
+		return getLista("");
+	}
+	
+	//exr 2.15 3
+	public List<Contato> getLista(String condicao){
 		try {
 			List<Contato> contatos = new ArrayList<Contato>();
 			
-			PreparedStatement stmt = this.connection.prepareStatement("select * from contatos");
+			String sql = "select * from contatos";
+			
+			if(condicao.length() > 0) {
+				sql += " where " + condicao;
+			}
+			
+			PreparedStatement stmt = this.connection.prepareStatement(sql);
 			
 			ResultSet rs = stmt.executeQuery();
 			
