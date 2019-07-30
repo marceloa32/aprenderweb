@@ -10,6 +10,7 @@ import java.util.Calendar;
 import java.util.List;
 
 import br.com.caelum.jdbc.ConnectionFactory;
+import br.com.caelum.jdbc.exception.DAOException;
 import br.com.caelum.jdbc.modelo.Contato;
 
 /**
@@ -40,7 +41,7 @@ public class ContatoDAO {
 			stmt.execute();
 			stmt.close();
 		} catch (SQLException e) {
-			throw new RuntimeException(e);
+			throw new DAOException(e);
 		}
 		
 	}
@@ -78,7 +79,7 @@ public class ContatoDAO {
 			
 			return contatos;
 		} catch (SQLException e) {
-			throw new RuntimeException(e);
+			throw new DAOException(e);
 		}
 	}
 
