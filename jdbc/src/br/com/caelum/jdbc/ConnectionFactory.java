@@ -4,6 +4,10 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+/**
+ * FJ-21 14.5.2 exr. 2.6
+ *
+ */
 public class ConnectionFactory {
 
 	public Connection getConnection() {
