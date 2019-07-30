@@ -45,12 +45,12 @@ public class ContatoDAO {
 		
 	}
 	
-	//exr 2.15 3
+	//exr 2.15-3
 	public List<Contato> getLista(){
 		return getLista("");
 	}
 	
-	//exr 2.15 3
+	//exr 2.15-3
 	public List<Contato> getLista(String condicao){
 		try {
 			List<Contato> contatos = new ArrayList<Contato>();
@@ -88,6 +88,48 @@ public class ContatoDAO {
 			stmt.close();
 			
 			return contatos;
+		} catch (SQLException e) {
+			throw new DAOException(e);
+		}
+	}
+	
+	/**
+	 * exr 2.15-4 
+	 * @param id
+	 * @return
+	 */
+	public Contato pesquisar(int id) {
+		
+		try {
+			
+			Contato contato = null;
+			String sql = "select * from contatos where id = ?";
+			
+			PreparedStatement stmt = this.connection.prepareStatement(sql);
+			stmt.setInt(1,id);
+			
+			ResultSet rs = stmt.executeQuery();
+			
+			if(rs.next()) {
+				contato = new Contato();
+				contato.setId(rs.getLong("id"));
+				contato.setNome(rs.getString("nome"));
+				contato.setEmail(rs.getString("email"));
+				contato.setEndereco(rs.getString("endereco"));
+				
+				//montar a data com o Calendar
+				Calendar data = Calendar.getInstance();
+				data.setTime(rs.getDate("dataNascimento"));
+				contato.setDataNascimento(data);
+				
+				contato.setDataNascimento(data);
+			}
+			
+			rs.close();
+			stmt.close();
+			
+			return contato;
+			
 		} catch (SQLException e) {
 			throw new DAOException(e);
 		}
