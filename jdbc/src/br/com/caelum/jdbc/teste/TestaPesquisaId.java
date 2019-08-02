@@ -1,7 +1,8 @@
-package br.com.caelum.jdbc.dao;
+package br.com.caelum.jdbc.teste;
 
 import java.text.SimpleDateFormat;
 
+import br.com.caelum.jdbc.dao.ContatoDAO;
 import br.com.caelum.jdbc.modelo.Contato;
 
 /**
