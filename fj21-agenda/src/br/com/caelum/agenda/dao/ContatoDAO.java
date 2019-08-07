@@ -1,4 +1,4 @@
-package br.com.caelum.jdbc.dao;
+package br.com.caelum.agenda.dao;
 
 import java.sql.Connection;
 import java.sql.Date;
@@ -9,9 +9,9 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
+import br.com.caelum.agenda.modelo.Contato;
 import br.com.caelum.jdbc.ConnectionFactory;
 import br.com.caelum.jdbc.dao.exception.DAOException;
-import br.com.caelum.jdbc.modelo.Contato;
 
 /**
  * FJ-21 14.5.2 exr. 2.11

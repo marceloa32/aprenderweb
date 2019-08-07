@@ -12,8 +12,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import br.com.caelum.jdbc.dao.ContatoDAO;
-import br.com.caelum.jdbc.modelo.Contato;
+import br.com.caelum.agenda.dao.ContatoDAO;
+import br.com.caelum.agenda.modelo.Contato;
 
 public class AdicionaContatoServlet extends HttpServlet{
 	
