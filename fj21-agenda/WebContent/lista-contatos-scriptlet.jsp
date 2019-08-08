@@ -1,6 +1,11 @@
 <!-- FJ-21 6.4 -->
 <%@ page import="java.util.*, br.com.caelum.agenda.dao.*, br.com.caelum.agenda.modelo.*, java.text.SimpleDateFormat" %>
 <html>
+<head>
+<meta charset="ISO-8859-1">
+<title>
+FJ-21: Lista de contatos com scriptlet
+</title></head>
 <body>
 <table>
 	<tr>
