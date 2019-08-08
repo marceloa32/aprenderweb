@@ -1,6 +1,4 @@
 <!-- FJ-21 exr 7.7 -->
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-
 <html>
 <head>
 <meta charset="ISO-8859-1">
@@ -9,6 +7,11 @@ FJ-21: Lista de contatos elegante
 </title>
 </head>
 <body>
+
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+	
+	<c:import url="cabecalho.jsp"/>
+	
 	<!--  criar o DAO -->
 	<jsp:useBean id="dao" class="br.com.caelum.agenda.dao.ContatoDAO"/>
 	
@@ -50,5 +53,7 @@ FJ-21: Lista de contatos elegante
 		</tr>
 	</c:forEach>	
 	</table>
+	
+	<c:import url="rodape.jsp"/>
 </body>
 </html>
