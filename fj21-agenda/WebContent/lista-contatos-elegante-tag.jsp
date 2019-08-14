@@ -21,8 +21,11 @@ FJ-21: Lista de contatos elegante
 	<jsp:useBean id="dao" class="br.com.caelum.agenda.dao.ContatoDAO"/>
 	
 	<display:table name="${dao.lista}" export="false" id="contato">
+		<!-- id -->
 		<display:column property="id" title="ID"/>
+		<!-- nome -->
 		<display:column property="nome" title="Nome"/>
+		<!-- email -->
 		<c:choose>
 			<c:when test="${not empty contato.email}">
 				<display:column property="email" title="Email"/>
@@ -30,10 +33,17 @@ FJ-21: Lista de contatos elegante
 			<c:otherwise>
 				<display:column value="E-mail nao cadastrado" title="Email"/>
 			</c:otherwise>
-		</c:choose>		
+		</c:choose>
+		<!-- endereco -->				
 		<display:column property="endereco" title="Endereco"/>
+		<!-- data de nascimento -->
 		<fmt:formatDate value="${contato.dataNascimento.time}" pattern="dd/MM/yyyy"  var="dataNasc"/>
 		<display:column value="${dataNasc}" title="Data de Nascimento"/> -->
+		<!-- remover -->		
+		<display:column title="Remover">
+			<a href="mvc?logica=RemoverContatoLogic&id=${contato.id}">Remover</a>
+		</display:column>			
+		
 	</display:table>
 
 	<!-- exr 7.13 -->	

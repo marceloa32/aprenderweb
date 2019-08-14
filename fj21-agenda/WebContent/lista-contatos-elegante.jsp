@@ -23,37 +23,31 @@ FJ-21: Lista de contatos elegante
 		<th>Nome</th>
 		<th>E-mail</th>
 		<th>Endereço</th>
-		<th>Data de nascimento</th>		
+		<th>Data de nascimento</th>
+		<th>Remover</th>		
 	</tr>
 	<!--  percorrer a lista de contatos -->
 	<c:forEach var="contato" items="${dao.lista}">
 		<tr bgcolor="#${contato.id %2 == 0 ? 'aaee88' : 'ffffff'}">
 			<td>${contato.nome}</td>
-			<!--  <td>${contato.email}</td>  -->
-			<!-- exr 7.11 -->
-<!-- 			<td> -->
-<%-- 				<c:if test="${not empty contato.email}"> --%>
-<%-- 				   <a href="mailto:${contato.email} }">${contato.email}</a> --%>
-<%-- 				</c:if> --%>
-<%-- 				<c:if test="${empty contato.email}"> --%>
-<!-- 					E-mail não cadastrado -->
-<%-- 				</c:if> --%>
-<!-- 			</td> -->
-			<!-- exr 7.11 opcional -->
 			<td>
 				<c:choose>
 					<c:when test="${not empty contato.email}">
-						<a href="mailto:${contato.email} }">${contato.email}</a>
+						<a href="mailto:${contato.email}">${contato.email}</a>
 					</c:when>
 					<c:otherwise>
 						E-mail não cadastrado
 					</c:otherwise>
 				</c:choose>
 			</td>			
-			<td>${contato.endereco}</td>
-<%-- 			<td>${contato.dataNascimento.time}</td> --%>
+			<td>
+				${contato.endereco}
+			</td>
 			<td>
 				<fmt:formatDate value="${contato.dataNascimento.time}" pattern="dd/MM/yyyy" />
+			</td>
+			<td>
+				<a href="mvc?logica=RemoverContatoLogic&id=${contato.id}">Remover</a>			     
 			</td>
 		</tr>
 	</c:forEach>	
