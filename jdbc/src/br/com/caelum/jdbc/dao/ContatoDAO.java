@@ -10,6 +10,7 @@ import java.util.Calendar;
 import java.util.List;
 
 import br.com.caelum.jdbc.ConnectionFactory;
+import br.com.caelum.jdbc.TipoBD;
 import br.com.caelum.jdbc.exception.DAOException;
 import br.com.caelum.jdbc.modelo.Contato;
 
@@ -20,6 +21,10 @@ import br.com.caelum.jdbc.modelo.Contato;
 public class ContatoDAO {
 	
 	private Connection connection;
+	
+	public ContatoDAO(TipoBD tipoBd) {
+		this.connection = new ConnectionFactory().getConnection(tipoBd);
+	}
 	
 	public ContatoDAO() {
 		this.connection = new ConnectionFactory().getConnection();
