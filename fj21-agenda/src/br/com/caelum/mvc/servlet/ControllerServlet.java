@@ -2,6 +2,7 @@ package br.com.caelum.mvc.servlet;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -23,7 +24,10 @@ public class ControllerServlet extends HttpServlet {
 		try {
 			Class classe = Class.forName(nomeDaClasse);
 			Logica logica = (Logica) classe.newInstance();
-			logica.executa(req, resp);
+			String redireciona = logica.executa(req, resp);
+			
+			RequestDispatcher rd = req.getRequestDispatcher(redireciona);
+			rd.forward(req, resp);
 		} catch (Exception e) {
 			throw new ServletException("A lógica de negócios causou uma exceção", e);
 		}

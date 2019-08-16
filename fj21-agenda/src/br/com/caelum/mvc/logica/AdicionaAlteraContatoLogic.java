@@ -4,7 +4,6 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -14,7 +13,7 @@ import br.com.caelum.agenda.modelo.Contato;
 public class AdicionaAlteraContatoLogic implements Logica {
 
 	@Override
-	public void executa(HttpServletRequest req, HttpServletResponse resp) throws Exception {
+	public String executa(HttpServletRequest req, HttpServletResponse resp) throws Exception {
 		
 		Contato contato = new Contato();
 		contato.setNome(req.getParameter("nome"));
@@ -43,8 +42,7 @@ public class AdicionaAlteraContatoLogic implements Logica {
 		}
 		
 		//-----
-		RequestDispatcher rd = req.getRequestDispatcher("/lista-contatos-elegante.jsp");
-		rd.forward(req, resp);		
+		return "/lista-contatos-elegante.jsp";				
 	}
 
 }
