@@ -55,7 +55,8 @@ FJ-21: Lista de contatos elegante
 		</tr>
 	</c:forEach>	
 	</table>
-
+	<br/>
+	<a href="adicionar-contato.jsp">Novo contato</a>
 	<!-- exr 7.13 -->	
 	<c:import url="rodape.jsp"/>
 </body>
