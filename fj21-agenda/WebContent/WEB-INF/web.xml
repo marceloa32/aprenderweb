@@ -56,4 +56,14 @@
   	<servlet-name>controlador</servlet-name>
   	<url-pattern>/mvc</url-pattern>
   </servlet-mapping>
+  
+  <!--  FJ-21 exr 10.2 -->
+  <filter>
+  	<filter-name>cronometro</filter-name>
+  	<filter-class>br.com.caelum.agenda.filtro.FiltroTempoDeExecucao</filter-class>
+  </filter>
+  <filter-mapping>
+  	<filter-name>cronometro</filter-name>
+  	<url-pattern>/*</url-pattern>
+  </filter-mapping>
 </web-app>
