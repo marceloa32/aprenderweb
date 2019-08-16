@@ -21,7 +21,8 @@
 		Endereço: <input type="text" name="endereco" value = "${contato.endereco}"/><br/>
 		<fmt:formatDate value="${contato.dataNascimento.time}" pattern="dd/MM/yyyy" var="data"/>
 		Data de Nascimento: <caelum:campoData id="dataNascimento" valor="${data}"/> 
-		<input type="hidden" name="logica" value="AlteraContatoLogic"/>
+		<!-- <input type="hidden" name="logica" value="AlteraContatoLogic"/> -->
+		<input type="hidden" name="logica" value="AdicionaAlteraContatoLogic"/>
 		<input type="submit" value="Enviar"/>
 	</form>
 	

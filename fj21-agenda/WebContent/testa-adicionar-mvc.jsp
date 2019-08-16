@@ -18,7 +18,8 @@
 		Email: <input type="text" name="email"/><br/>
 		Endereço: <input type="text" name="endereco"/><br/>
 		Data de Nascimento: <caelum:campoData id="dataNascimento" valor=""/>
-		<input type="hidden" name="logica" value="AdicionaContatoLogic"/>
+		<!--  <input type="hidden" name="logica" value="AdicionaContatoLogic"/>  -->
+		<input type="hidden" name="logica" value="AdicionaAlteraContatoLogic"/>
 		<input type="submit" value="Enviar"/>
 	</form>
 	

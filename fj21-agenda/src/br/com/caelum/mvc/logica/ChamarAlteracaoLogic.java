@@ -11,7 +11,7 @@ public class ChamarAlteracaoLogic implements Logica {
 
 	@Override
 	public void executa(HttpServletRequest req, HttpServletResponse resp) throws Exception {
-		// TODO Auto-generated method stub
+
 		long id = Long.parseLong(req.getParameter("id"));
 		ContatoDAO dao = new ContatoDAO();
 		Contato c = dao.pesquisar(id);
