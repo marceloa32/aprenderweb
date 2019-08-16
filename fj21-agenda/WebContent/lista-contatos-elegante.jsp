@@ -49,6 +49,9 @@ FJ-21: Lista de contatos elegante
 			<td>
 				<a href="mvc?logica=RemoverContatoLogic&id=${contato.id}">Remover</a>			     
 			</td>
+			<td>
+				<a href="mvc?logica=ChamarAlteracaoLogic&id=${contato.id}">Alterar</a>			     
+			</td>
 		</tr>
 	</c:forEach>	
 	</table>
