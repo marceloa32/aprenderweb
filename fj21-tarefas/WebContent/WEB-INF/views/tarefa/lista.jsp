@@ -1,6 +1,9 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <html>
+<head>
+<title>Lista de tarefas</title>
+</head>
 <body>
 	<a href="novaTarefa">Criar nova tarefa</a>
 	<br/><br/>
@@ -27,6 +30,10 @@
 			<!-- 11.15 1 -->
 			<td>
 				<a href="removeTarefa?id=${tarefa.id}">Remover</a>
+			</td>
+			<!-- 11.15 2 -->
+			<td>
+			    <a href="mostraTarefa?id=${tarefa.id}">Alterar</a>
 			</td>
 		</tr>		
 	</c:forEach>

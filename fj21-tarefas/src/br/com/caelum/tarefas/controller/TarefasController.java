@@ -50,5 +50,21 @@ public class TarefasController {
 		dao.remove(tarefa);
 		return "redirect:listaTarefas";
 	}
+	
+	//11.15 2
+	@RequestMapping("mostraTarefa")
+	public String mostra(Long id, Model model) {
+		TarefaDAO dao = new TarefaDAO();
+		model.addAttribute("tarefa", dao.buscaPorId(id));
+		return "tarefa/mostra";
+	}
+	
+	//11.15 2
+	@RequestMapping("alteraTarefa")
+	public String altera(Tarefa tarefa) {
+		TarefaDAO dao = new TarefaDAO();
+		dao.altera(tarefa);
+		return "redirect:listaTarefas";
+	}
 
 }

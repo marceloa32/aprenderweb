@@ -5,6 +5,8 @@ import java.util.Calendar;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class Tarefa {
 	
 	private Long id;
@@ -12,6 +14,9 @@ public class Tarefa {
 	@NotNull @Size(min=5)
 	private String descricao;
 	private boolean finalizado;
+	
+	//11.15 2 para o spring converter a data no formato brasileiro
+	@DateTimeFormat(pattern="dd/MM/yyyy")
 	private Calendar dataFinalizacao;
 	
 	public Long getId() {

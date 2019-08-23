@@ -95,7 +95,7 @@ private Connection connection;
 	 * @param id
 	 * @return
 	 */
-	public Tarefa pesquisar(long id) {
+	public Tarefa buscaPorId(long id) {
 		
 		try {
 			
@@ -110,13 +110,15 @@ private Connection connection;
 			if(rs.next()) {
 				tarefa = new Tarefa();
 				tarefa.setId(rs.getLong("id"));
-				tarefa.setDescricao(rs.getString("decricao"));
+				tarefa.setDescricao(rs.getString("descricao"));
 				tarefa.setFinalizado(rs.getBoolean("finalizado"));
 				
 				//montar a data com o Calendar
-				Calendar data = Calendar.getInstance();
-				data.setTime(rs.getDate("dataFinalizacao"));
-				tarefa.setDataFinalizacao(data);
+				if(rs.getDate("dataFinalizacao") != null) {
+					Calendar data = Calendar.getInstance();
+					data.setTime(rs.getDate("dataFinalizacao"));
+					tarefa.setDataFinalizacao(data);
+				}
 			}
 			
 			rs.close();
@@ -135,8 +137,12 @@ private Connection connection;
 		try {
 			PreparedStatement stmt = connection.prepareStatement(sql);
 			stmt.setString(1, tarefa.getDescricao());
-			stmt.setBoolean(2, tarefa.isFinalizado());			
-			stmt.setDate(3, new Date(tarefa.getDataFinalizacao().getTimeInMillis()));
+			stmt.setBoolean(2, tarefa.isFinalizado());	
+			if(tarefa.getDataFinalizacao() != null) {
+				stmt.setDate(3, new Date(tarefa.getDataFinalizacao().getTimeInMillis()));
+			} else { 
+				stmt.setDate(3, null);
+			}
 			stmt.setLong(4, tarefa.getId());
 			stmt.execute();
 			
