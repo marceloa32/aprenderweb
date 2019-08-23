@@ -25,6 +25,7 @@ public class TarefasController {
 	@RequestMapping("adicionaTarefa")
 	public String adiciona(@Valid Tarefa tarefa, BindingResult result) {
 		
+		//validacoes de campos
 		if(result.hasFieldErrors()) {
 			return "tarefa/formulario";
 		}
@@ -37,8 +38,17 @@ public class TarefasController {
 	@RequestMapping("listaTarefas")
 	public String lista(Model model) {
 		TarefaDAO dao = new TarefaDAO();
+		//model: para devolver a lista
 		model.addAttribute("tarefas", dao.getLista());
 		return "tarefa/lista";
+	}
+	
+	//11.15 1
+	@RequestMapping("removeTarefa")
+	public String remove(Tarefa tarefa) {
+		TarefaDAO dao = new TarefaDAO();
+		dao.remove(tarefa);
+		return "redirect:listaTarefas";
 	}
 
 }

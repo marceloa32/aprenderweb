@@ -148,7 +148,7 @@ private Connection connection;
 
 	public void remove(Tarefa tarefa) {
 		try {
-			PreparedStatement stmt = connection.prepareStatement("delete from tarefaas where id = ?");			
+			PreparedStatement stmt = connection.prepareStatement("delete from tarefas where id = ?");			
 			stmt.setLong(1, tarefa.getId());
 			stmt.execute();
 			
