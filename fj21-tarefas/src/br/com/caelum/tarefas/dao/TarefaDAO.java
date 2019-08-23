@@ -179,6 +179,18 @@ private Connection connection;
 			throw new DAOException(e);
 		}
 	}
+
+	public void remove(Long id) {
+		try {
+			PreparedStatement stmt = connection.prepareStatement("delete from tarefas where id = ?");			
+			stmt.setLong(1, id);
+			stmt.execute();
+			
+			stmt.close();
+		} catch (SQLException e) {
+			throw new DAOException(e);
+		}		
+	}
 	
 
 }

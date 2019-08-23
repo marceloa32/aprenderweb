@@ -18,6 +18,11 @@
 				$("#data_"+id).html(now.getDate() + "/" + (now.getMonth()+1).toString().padStart(2, "0") + "/" +now.getFullYear());
 			})
 		}
+		function removerAgora(id){
+			$.post("removerTarefa",{'id':id}, function(){
+				$("#tarefa_"+id).closest("tr").hide();				
+			})
+		}
 	</script>
 
 	<a href="novaTarefa">Criar nova tarefa</a>
@@ -36,7 +41,7 @@
 			<c:if test="${tarefa.finalizado eq false}">
 				<!-- 11.20 3 -->
 				<td id="tarefa_${tarefa.id}">
-				 <a href="#" onClick="finalizarAgora(${tarefa.id})">Finalizar agora</a>
+				 	<a href="#" onClick="finalizarAgora(${tarefa.id})">Finalizar agora</a>
 				</td>
 			</c:if>
 			<c:if test="${tarefa.finalizado eq true}">
@@ -52,6 +57,9 @@
 			<!-- 11.15 2 -->
 			<td>
 			    <a href="mostraTarefa?id=${tarefa.id}">Alterar</a>
+			</td>
+			<td id="tarefa_${tarefa.id}">
+				<a href="#" onClick="removerAgora(${tarefa.id})">Remover agora</a>
 			</td>
 		</tr>		
 	</c:forEach>

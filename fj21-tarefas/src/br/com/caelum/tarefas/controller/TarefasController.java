@@ -75,4 +75,12 @@ public class TarefasController {
 		dao.finaliza(id);
 		response.setStatus(200);
 	}
+	
+	//11.20
+	@RequestMapping("removerTarefa")
+	public void remover(Long id, HttpServletResponse response) {
+		TarefaDAO dao = new TarefaDAO();
+		dao.remove(id);
+		response.setStatus(200);
+	}
 }
