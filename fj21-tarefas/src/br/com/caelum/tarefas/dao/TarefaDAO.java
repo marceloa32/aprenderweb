@@ -71,9 +71,11 @@ private Connection connection;
 				tarefa.setFinalizado(rs.getBoolean("finalizado"));
 								
 				//montar a data com o Calendar
-				Calendar data = Calendar.getInstance();
-				data.setTime(rs.getDate("dataFinalizacao"));
-				tarefa.setDataFinalizacao(data);
+				if(rs.getDate("dataFinalizacao") != null) {					
+					Calendar data = Calendar.getInstance();
+					data.setTime(rs.getDate("dataFinalizacao"));
+					tarefa.setDataFinalizacao(data);
+				}
 				
 				//adicionar objeto a lista
 				tarefas.add(tarefa);

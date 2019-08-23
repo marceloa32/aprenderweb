@@ -3,6 +3,7 @@ package br.com.caelum.tarefas.controller;
 import javax.validation.Valid;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -30,6 +31,14 @@ public class TarefasController {
 		TarefaDAO dao = new TarefaDAO();
 		dao.adiciona(tarefa);
 		return "tarefa/adicionada";
+	}
+	
+	//11.13 1
+	@RequestMapping("listaTarefas")
+	public String lista(Model model) {
+		TarefaDAO dao = new TarefaDAO();
+		model.addAttribute("tarefas", dao.getLista());
+		return "tarefa/lista";
 	}
 
 }
