@@ -1,5 +1,6 @@
 package br.com.caelum.tarefas.controller;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
 import org.springframework.stereotype.Controller;
@@ -67,4 +68,11 @@ public class TarefasController {
 		return "redirect:listaTarefas";
 	}
 
+	//11.20
+	@RequestMapping("finalizaTarefa")
+	public void finaliza(Long id, HttpServletResponse response) {
+		TarefaDAO dao = new TarefaDAO();
+		dao.finaliza(id);
+		response.setStatus(200);
+	}
 }
