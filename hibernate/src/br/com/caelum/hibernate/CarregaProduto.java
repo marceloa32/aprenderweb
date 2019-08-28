@@ -2,7 +2,7 @@ package br.com.caelum.hibernate;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.AnnotationConfiguration;
-import org.hibernate.classic.Session;
+import org.hibernate.Session;
 
 @SuppressWarnings("deprecation")
 public class CarregaProduto {

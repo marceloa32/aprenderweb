@@ -1,13 +1,11 @@
 package br.com.caelum.hibernate;
 
-
-
 import java.util.List;
 
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.AnnotationConfiguration;
-import org.hibernate.classic.Session;
+import org.hibernate.Session;
 
 @SuppressWarnings("deprecation")
 public class BuscaProdutos {
